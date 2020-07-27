@@ -12,6 +12,7 @@ class RegisterModal extends Component {
         name: '',
         email: '',
         password: '',
+        role: 'Admin',
         msg: null
     };
     static propTypes = {
@@ -52,10 +53,10 @@ class RegisterModal extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name, email, password } = this.state;
+        const { name, email, password, role } = this.state;
         //Create a user object
         const newUser = {
-            name, email, password
+            name, email, password, role
         };
         //Attempt to register
         this.props.register(newUser);
@@ -67,7 +68,6 @@ class RegisterModal extends Component {
                 <NavLink href="#" onClick={this.toggle}>
                     Register
                 </NavLink>
-
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Register</ModalHeader>
                     <ModalBody>
@@ -98,6 +98,12 @@ class RegisterModal extends Component {
                                     placeholder="Password"
                                     className="mb-3"
                                     onChange={this.onChange} />
+                                <Label for="role">Role</Label>
+                                <Input type="select" name="role" id="role" onChange={this.onChange}>
+                                    <option disabled="true" className="disabled">Select a roll</option>
+                                    <option>Admin</option>
+                                    <option>Customer</option>
+                                </Input>
                                 <Button color='dark' style={{ marginTop: '2rem' }} block>Register</Button>
                             </FormGroup>
                         </Form>

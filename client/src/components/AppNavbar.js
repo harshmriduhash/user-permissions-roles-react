@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout';
+import { NavLink } from 'react-router-dom';
 
 
 export class AppNavbar extends Component {
@@ -41,6 +42,11 @@ export class AppNavbar extends Component {
                     </span>
                 </NavItem>
                 <NavItem>
+                    <NavLink className="nav-link" to="/home">
+                        <span className="fa fa-home fa-lg"></span> Home
+                    </NavLink>
+                </NavItem>
+                <NavItem>
                     <Logout />
                 </NavItem>
 
@@ -63,7 +69,7 @@ export class AppNavbar extends Component {
             <div>
                 <Navbar color='dark' dark expand='sm' className='mb-5'>
                     <Container>
-                        <NavbarBrand href='/'>Authorization WebApp</NavbarBrand>
+                        <NavbarBrand href='/'>User Roles and Permissions Task</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

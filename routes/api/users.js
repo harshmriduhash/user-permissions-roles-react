@@ -10,10 +10,10 @@ const User = require("../../models/User");
 // @route POST api/users
 // @desc Register new user
 router.post("/", (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   // validation
-  if (!name || !email || !password) {
+  if (!name || !email || !password || !role) {
     return res.status(400).json({
       msg: "Please enter all fields",
     });
@@ -27,6 +27,7 @@ router.post("/", (req, res) => {
       name,
       email,
       password,
+      role
     });
 
     // create salt & hash
@@ -47,6 +48,7 @@ router.post("/", (req, res) => {
                   id: user.id,
                   name: user.name,
                   email: user.email,
+                  role: user.role
                 },
               });
             }
