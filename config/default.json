@@ -1,4 +1,0 @@
-{
-    "mongoURI": "mongodb://Sanskaar:abcd@auth-shard-00-00-fjjt0.mongodb.net:27017,auth-shard-00-01-fjjt0.mongodb.net:27017,auth-shard-00-02-fjjt0.mongodb.net:27017/<dbname>?ssl=true&replicaSet=auth-shard-0&authSource=admin&retryWrites=true&w=majority",
-    "jwtSecret": "sl_myJWTSecret"
-}
